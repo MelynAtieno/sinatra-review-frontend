@@ -1,10 +1,10 @@
 import React from "react";
 
 
-function ReviewsContainer({showReviews}) {
+function ReviewsContainer() {
   return (
     <div className="reviews-container">
-       <button onClick={showReviews}>SHOW REVIEWS</button>
+       
     </div>
   );
 }

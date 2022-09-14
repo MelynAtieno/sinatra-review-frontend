@@ -5,7 +5,7 @@ function Restaurants({showRestaurants}){
       
     return (
           <div>
-            <button onClick={showRestaurants}>SHOW RESTAURANTS</button>
+            <button className="resbtn" onClick={showRestaurants}>SHOW RESTAURANTS</button>
           </div>
     
         );

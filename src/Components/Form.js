@@ -28,18 +28,17 @@ function Form({addReview}){
     
       return(
         <div>
-            <h1>Add a review</h1>
+            <h3>Add a review</h3>
           <form  >
-            <label>Restaurant Name: </label>
+            <label><b>Restaurant Name: </b></label>
                 <input type='text' value={restaurant_name} onChange={(e) => setRestaurant_name(e.target.value)}></input>
-            <label>Rating(Out of 5):</label>
+            <label><b>Rating(Out of 5):</b></label>
                 <input type='integer' value={rating} onChange={(e) => setRating(e.target.value)}></input>
-            <label >Feedback:</label>
-                <textarea type='text' value={feedback} onChange={(e) => setFeedback(e.target.value)}></textarea> 
-                <button onClick={handleSubmit}>SHARE REVIEW</button>
-                 
-            
-          </form>
+            <label ><b>Feedback:</b></label>
+              <textarea className="textarea" type='text' value={feedback} onChange={(e) => setFeedback(e.target.value)}></textarea> 
+              <button className="formbutton" onClick={handleSubmit}>ADD REVIEW</button>
+            </form>
+           
           
           
         </div>

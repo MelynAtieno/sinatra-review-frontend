@@ -1,7 +1,8 @@
 .App {
   text-align: left;
-  background-color: aliceblue;
-  margin-bottom: 0px
+  background-color: grey;
+
+
 }
 
 .App-header {
@@ -11,20 +12,83 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: smaller;
   color: white;
 }
 form{
-  background-color: beige;
+  
   height: 200px;
-  width: 300px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 20px;
   
 }
+
 
 h1{
   text-align: left;
 }
 
+/*.sidebar {
+  min-height: 100vh;
+  min-width: 12em;
+  width: 48%;
+  border-right: solid black 1px;
+  background: #e5fdff;
+  padding: 1em;
+}*/
+
+.formbutton{
+  width: 28%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.reviewscontainer{
+  min-width: 100vh;
+  min-height: 12em;
+  background-color: whitesmoke;
+  float: right;
+  min-width: 60%;
+  position: absolute;
+  top: 170px;
+  right: 0px;
+  margin-bottom: 20px;
+  
+}
+.btnreviews{
+  height: 30px;
+  margin-top: 10px;
+  
+
+}
+/*.restaurants{
+  width: 35%;
+  min-height: 100px;
+  background-color: whitesmoke;
+  margin-top: 20px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  
+}*/
+.resbtn{
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.updates{
+  right: 0px;
+  background-color: aqua;
+
+}
+span{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 
 
 

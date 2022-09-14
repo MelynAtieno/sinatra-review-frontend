@@ -1,19 +1,28 @@
 import React from 'react'
 
+function Review({review, deleteReview}){
 
-function Review({deleteReview}){
+  function onDeleteClick(id){
+    
+
+  fetch(`http://localhost:9292/reviews/${review.id}`, {
+    method: 'DELETE',
+  })
+  .then((resp) =>resp.json())
+  .then((deletedReview) => deleteReview(deletedReview))
+  
+}
 
   return(
       <div>
-          
-              <button onClick={deleteReview}>DELETE</button>
-              
-              
-          </div>
+          <button className='delbtn' onClick = {onDeleteClick}>DELETE</button>
+      </div>
           
       
   )
 }
+
+
     
 
 export default Review;
