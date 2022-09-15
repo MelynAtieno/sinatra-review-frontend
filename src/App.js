@@ -44,10 +44,15 @@ function App() {
       .then((updatedReview) => onUpdateReview(updatedReview))
   }
 
-  const deleteReview = (id) => {
-    setReviews((allReviews) => {
-      return [...allReviews.filter((review) => review.id !== id)];
-    });
+  function deleteReview(id) {
+    fetch(`http://localhost:9292/reviews/${id}`, {
+      method: 'DELETE'
+    }).then((result) => {
+      result.json().then((resp) => {
+        console.warn(resp)
+        showReviews()
+      })
+    })
   }
 
   function showReviews() {
