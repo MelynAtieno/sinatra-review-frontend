@@ -1,13 +1,14 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Form from "./Components/Form";
-import Review from './Components/Review';
+
 import ReviewsContainer from './Components/ReviewsContainer';
-import UpdateReview from './Components/UpdateReviews';
+import UpdateReview from "./Components/UpdateReviews"
 
 
 function App() {
   const [allReviews, setReviews] = useState([])
+  
 
   useEffect(() => {
     fetch("http://localhost:9292/reviews")
@@ -29,37 +30,40 @@ function App() {
       .then(resp => resp.json())
       .then(resp => addReview(resp))
   }
-
-  function onUpdateReview(review) {
-
-    fetch(`http://localhost:9292/reviews${review.id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-        "accept": "application/json"
-      },
-      body: JSON.stringify(review)
-    })
-      .then((resp) => resp.json())
-      .then((updatedReview) => onUpdateReview(updatedReview))
-  }
+ 
 
   function deleteReview(id) {
     fetch(`http://localhost:9292/reviews/${id}`, {
       method: 'DELETE'
-    }).then((result) => {
-      result.json().then((resp) => {
-        showReviews(resp)
-      })
     })
+      .then(() => { showReviews()})
+      
+    
   }
 
-  function showReviews() {
+  function showReviews(e) {
+    e.preventDefault()
     fetch("http://localhost:9292/reviews")
       .then(resp => resp.json())
       .then(resp => showReviews(resp))
   }
-  console.log(allReviews)
+
+  function handleUpdate(onUpdateReview, review){
+    
+    fetch (`http://localhost:9292/reviews/${review.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            
+        }),
+    })
+        .then((resp) => resp.json())
+        .then ((updatedReview) => onUpdateReview(updatedReview))
+    
+}
+
 
   return (
     <div className="App">
@@ -79,9 +83,14 @@ function App() {
               <p><b>Rating:</b> {review.rating}</p>
               <p><b>Feedback:</b> {review.feedback}</p>
               <span className='buttons'>
-                <Review deleteReview={deleteReview} />
-                <UpdateReview updateReview={onUpdateReview} />
-              </span>
+              <button className='delbtn' onClick={() => deleteReview(review.id)}>DELETE</button>
+              <div>
+              <UpdateReview handleUpdate = {handleUpdate}/>
+              
+              
+         
+      </div>
+      </span>
             </div>
           )
         })}
@@ -92,3 +101,6 @@ function App() {
 }
 
 export default App;
+
+//Review deleteReview={deleteReview} 
+//<UpdateReview updateReview={updateReview} />

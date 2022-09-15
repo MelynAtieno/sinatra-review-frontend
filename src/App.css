@@ -33,14 +33,11 @@ h1{
   text-align: left;
 }
 
-/*.sidebar {
-  min-height: 100vh;
-  min-width: 12em;
-  width: 48%;
-  border-right: solid black 1px;
-  background: #e5fdff;
-  padding: 1em;
-}*/
+.delbtn{
+  width: 70px;
+}
+
+
 
 .formbutton{
   width: 28%;

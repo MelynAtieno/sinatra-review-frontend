@@ -1,7 +1,6 @@
 import React from "react";
 
 function UpdateReview({review, onUpdateReview}){
-   
 
     function handleUpdate(e){
         e.preventDefault();
@@ -20,13 +19,16 @@ function UpdateReview({review, onUpdateReview}){
     }
 
    
-    return (
+    
+        return (
            <div>
+            
             <button onClick={handleUpdate}>UPDATE</button>
+            
            </div> 
-        )
+        );
 
 
-}
+    }
 
 export default UpdateReview;
