@@ -49,8 +49,7 @@ function App() {
       method: 'DELETE'
     }).then((result) => {
       result.json().then((resp) => {
-        console.warn(resp)
-        showReviews()
+        showReviews(resp)
       })
     })
   }
